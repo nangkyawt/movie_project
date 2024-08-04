@@ -1,0 +1,53 @@
+img{
+    width: 100%;
+    height: auto;
+}
+h1 {
+    color: red; 
+    margin-top: -20px; 
+  }
+  
+  h2 {
+    color: crimson; /* Another shade of red */
+  }
+.cast-image{
+    width: 50px; /* Adjust the width as needed */
+    height: auto;
+    border-radius: 5px; /* Optional: for rounded corners */
+    object-fit: cover;
+}
+
+  .contain {
+    padding: 1rem; /* Adds padding inside the container */
+  }
+  
+  .row {
+    margin-bottom: 1.5rem; /* Space between rows */
+  }
+  
+  .col-lg-2 {
+    margin-bottom: 1rem; /* Space below each column */
+  }
+  
+  iframe {
+    margin-top: 1rem; /* Space above the video */
+  }
+  @media (max-width: 768px) {
+    .cast-image {
+      width: 60px; /* Adjust size for smaller screens */
+      height: 60px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .cast-image {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  iframe.small-video {
+    width: 320px; /* Adjust to desired width */
+    height: 180px; /* Adjust to desired height */
+    border: none; /* Remove default border */
+    margin: 10px 0; /* Optional: add some spacing */
+}

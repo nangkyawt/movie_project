@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: "Poppins";  */
+}
+.body{
+    background-image: url("../../assets/Images/movie.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+
+}
+.wrapper{
+    
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgb(224, 10, 24);
+    color: rgb(231, 17, 17);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgb(0, 0, 0, .2);
+    border-radius: 10px;
+    padding: 30px 40px;
+    
+}
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+    /* font-family: Poppins;
+    src: url('../../assets/Fonts/Poppins.ttf'); */
+}
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid #fc0c0c;
+    border-radius: 40px;
+    font-size: 16px;
+    color: rgb(241, 10, 10);
+    padding: 20px 45px 20px 20px;
+
+}
+.input-box input::placeholder{
+    color: rgb(222, 12, 16);
+}
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+
+}
+.wrapper .remember-forget{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+.remember-forget label input{
+    accent-color: white;
+    margin-right: 3px;
+    /* font-family: Poppins;
+    src: url('../../assets/Fonts/Poppins.ttf'); */
+}
+.remember-forget a{
+    color:#339FFF;
+    text-decoration: none;
+}
+.remember-forget a:hover{
+    text-decoration: underline;
+}
+.wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: rgb(231, 51, 51);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgb(172, 163, 163);
+    cursor: pointer;
+    font-size: 16px;
+    color:rgb(243, 235, 235);
+    font-weight: bold;
+    /* font-family: Poppins;
+    src: url('../../assets/Fonts/Poppins.ttf'); */
+}
+.wrapper .register-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px 0 15px;
+
+}
+.register-link p a{
+    color: #339FFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+.register-link p a:hover{
+    text-decoration: underline;
+}

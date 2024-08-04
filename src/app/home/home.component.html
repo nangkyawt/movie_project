@@ -1,0 +1,83 @@
+<!-- <button class="btn btn-primary" (click)="getMovies()">Get Movies</button> -->
+<div class="container-fluid">
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-inner">
+      <div
+        class="carousel-item active"
+        data-bs-interval="10000"
+        *ngFor="let movie of movies; let i = index"
+        [ngClass]="{ active: i === 0 }"
+      >
+        <img
+          src="http://image.tmdb.org/t/p/original/{{ movie.backdrop_path }}"
+          [routerLink]="'/moviedetails/' + movie.id"
+          class="d-block w-100"
+          alt="..."
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <h2>{{ movie.original_title }}</h2>
+          <p>{{ movie.overview }}</p>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="contain mt-3 p-4">
+    <div class="row">
+      <h2 class="text">Now Playing Movies</h2>
+      <div class="rowposter">
+        <ng-container *ngFor="let nowplaying of now_playing_movies">
+          <img
+            class="poster"
+            src="https://image.tmdb.org/t/p/original/{{
+              nowplaying.poster_path
+            }}"
+        /></ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="contain mt-3 p-4">
+    <div class="row">
+      <h2 class="text">Top-Rated Movies</h2>
+      <div class="rowposter">
+        <ng-container *ngFor="let toprated of top_rated"
+          ><img
+            class="poster"
+            src="https://image.tmdb.org/t/p/original/{{ toprated.poster_path }}"
+            [routerLink]="['/moviedetails', toprated.id]"
+        /></ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="contain mt-3 p-4">
+    <div class="row">
+      <h2 class="text">UpComing Movies</h2>
+      <div class="rowposter">
+        <ng-container *ngFor="let result of upcoming"
+          ><img
+            class="poster"
+            src="https://image.tmdb.org/t/p/original/{{ result.poster_path }}"
+            [routerLink]="['/moviedetails', result.id]"
+        /></ng-container>
+      </div>
+    </div>
+  </div>
+</div>

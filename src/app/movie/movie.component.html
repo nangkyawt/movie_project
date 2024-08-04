@@ -1,0 +1,33 @@
+<div class="contain mt-3 p-4">
+  <div class="row">
+    <h2 class="text">Now Playing Movies</h2>
+    <div class="rowposter">
+      <ng-container *ngFor="let nowplaying of now_playing_movies"
+        ><img
+          [src]="
+            'http://image.tmdb.org/t/p/original/' + nowplaying['backdrop_path']
+          "
+          class="d-block w-100"
+          alt="..."
+          class="rowing poster"
+      /></ng-container>
+    </div>
+  </div>
+</div>
+<div class="contain mt-3 p-4">
+  <div class="row">
+    <h2 class="text">Upcoming Movies</h2>
+    <div class="rowposter">
+      <ng-container *ngFor="let upcoming of upcoming_movies"
+        ><img
+          [src]="
+            'http://image.tmdb.org/t/p/original/' + upcoming['backdrop_path']
+          "
+          class="d-block w-100"
+          alt="..."
+          class="rowing poster"
+      /></ng-container>
+    </div>
+  </div>
+</div>
+<!-- <button class="btn btn-primary" (click)="logout()">Logout</button> -->
