@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -8,56 +8,60 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  // name: string | undefined;
   constructor(
     private router: Router,
     private http: HttpClient,
     private cookieService: CookieService
   ) {}
+  ngOnInit() {
+    localStorage.setItem('defaultEmail', 'nangkyawt@gmail.com');
+    localStorage.setItem('defaultPassword', '55555');
+  }
 
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
-  // this.router.navigatebyurl([''])
+  // this.router.navigatebyurl(['']),
 
-  email?: String = ' ';
-  password?: String = ' ';
+  email: string = '';
+  password: string = '';
   myname = 'nangkyawt';
   passwordVisible: boolean = false;
   // now = Date.now;
-  async login() {
-    console.log(this.email);
-    console.log(this.password);
-    var response = await this.http.post(
-      `http://localhost:3000/api/v1/users/login`,
-      // 'http://localhost:3000/api/v1/users/signin',
-      {
-        email: this.email,
-        password: this.password,
-      } //body
-    );
-    console.log(response);
-    response.subscribe({
-      next: (data: any) => {
-        console.log(data);
-        this.cookieService.set('token', data['token']);
-        // sessionStorage.setItem('token', data['token']);
-        this.router.navigateByUrl('navbar');
-        console.log(this.email);
-      },
-      // error: (error: HttpErrorResponse) => {
-      //   alert(error.status + error.statusText);
-      // }, //error message
-      error: (err: any) => {
-        console.log(err.message);
-        alert(err.message);
-      },
-    });
 
-    //Api Call.success
-    // console.log('<<<<nnnn');
-    // if (this.name == 'nangkyawt' && this.password == '5555') {
-    //   this.router.navigateByUrl('movie');
-    // }
+  // login() {
+  //   this.http
+  //     .post<any>(`http://localhost:4200/api/v1/users/login`, {
+  //       email: this.email,
+  //       password: this.password,
+  //     })
+  //     .subscribe({
+  //       next: (data) => {
+  //         console.log(data);
+  //         this.cookieService.set('token', data['token']);
+  //         this.router.navigateByUrl('/home'); // Navigate to home page on success
+  //       },
+  //       error: (err: HttpErrorResponse) => {
+  //         console.error(err);
+  //         alert('Login failed. Please check your credentials and try again.');
+  //       },
+  //     });
+  // }
+
+  login() {
+    console.log('Login method called');
+    const storedEmail = localStorage.getItem('defaultEmail');
+    const storedPassword = localStorage.getItem('defaultPassword');
+
+    if (this.email === storedEmail && this.password === storedPassword) {
+      // Simulate successful login
+      localStorage.setItem('token', 'fake-jwt-token'); // Store a fake token
+      this.router.navigateByUrl('/home'); // Navigate to home page on success
+      alert('Login Successful');
+    } else {
+      alert('Invalid credentials');
+    }
   }
 }
