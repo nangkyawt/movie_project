@@ -17,7 +17,6 @@ import { SquarePipe } from './square.pipe';
 import { PowerPipe } from './power.pipe';
 import { HighlightDirective } from './highlight.directive';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,6 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     SquarePipe,
     PowerPipe,
     HighlightDirective,
-    MovieDetailComponent,
   ],
   imports: [
     BrowserModule,
