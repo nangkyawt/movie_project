@@ -21,6 +21,7 @@ export class MovieDetailsComponent implements OnInit {
   getParamid: any;
   videos: any[] = [];
   selectedVideo: SafeResourceUrl | null = null;
+  stars: number[] = [1, 2, 3, 4, 5];
 
   // ngOnInit(): void {
   //   let getParamid = this.router.snapshot.paramMap.get('id');

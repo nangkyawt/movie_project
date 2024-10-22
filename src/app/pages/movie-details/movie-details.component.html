@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="contain mt-5">
   <div class="row">
     <div class="col-lg-3">
@@ -10,6 +11,17 @@
       <ul>
         <li *ngFor="let genre of movie.genres">{{ genre.name }}</li>
       </ul>
+      <!-- Star Rating -->
+      <div class="rating">
+        <span
+          *ngFor="let star of stars; let i = index"
+          class="star"
+          [ngClass]="{ filled: i < movie.vote_average / 2 }"
+        >
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+
       <!-- Display trailer video -->
       <ng-container *ngIf="selectedVideo">
         <h2>Trailer</h2>

@@ -1,75 +1,54 @@
 .navbar {
-    background-color:rgb(253, 250, 250) !important;
+    background: rgba(255, 255, 255, 0.2) !important; /* Transparent background */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease-in-out;
+    padding: 10px 20px;
+}
+.navbar:hover {
+    background: rgba(255, 255, 255, 0.4); /* Slightly darker on hover */
 }
 
-.navbar-brand{
+.navbar-brand {
     color: red;
-    text-decoration: none;
     font-weight: bold;
-    /* font-family: Poppins;
-    src: url("../../assets/Fonts/Poppins-SemiBold.ttf"); */
-    transition: 3s;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 20px;
 }
-/* .header{
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
-    box-shadow: 0 4px 41px rgb(14 55 54 / 14%);
-    padding: 15px 10%;
-    transition: 0.2s;
-} */
-/* .logo{
-    display: flex;
-    align-items: top;
-} */
-/* .logo-image{
-    width: 40px;} */
-    /* height: 40px; */
-    /* border-radius: 50%; */
-    /* overflow: hidden;  */
-    /* margin-top: 1px;  */
-   
 
-
-.navbar-nav{
+.navbar-nav {
     text-align: right;
 }
-/* .navbar ul{
-    list-style: none;
-    background-color: aliceblue;
-    padding: 0;
-    margin: 0;
-   
-} */
-.navbar li{
-    
-    color: red;
-    text-decoration: none;
-    font-weight: bold;
-    /* font-family: Poppins;
-    src: url('../../assets/Fonts/Poppins.ttf'); */
-    transition: 3s;
-}
-.nav-item a{
-    color: red;
-    width: 100px;
-    padding: 25px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    /* font-family: Poppins;
-    src: url('../../assets/Fonts/Poppins.ttf'); */
-    /* display: block; */
-    text-align: center;
-    
 
+.nav-item a {
+    color: red; /* Red text color */
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px; /* Reduce padding inside the links */
+    font-size: 16px;
+    transition: color 0.3s;
 }
-.nav-item a:hover{
-    color: black;
+
+.nav-item a:hover {
+    color: black; /* Change to black on hover */
+}
+
+/* Optional: Toggler icon styling for better visibility */
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1); /* Make the icon white */
+}
+
+/* Styling for better appearance */
+.form-control {
+    border-radius: 20px 0 0 20px; /* Rounded left corners */
+}
+
+.input-group-text {
+    background-color: white;
+    border-radius: 0 20px 20px 0; /* Rounded right corners */
+    cursor: pointer;
+    border-left: none; /* No border between input and icon */
 }
 

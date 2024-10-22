@@ -26,13 +26,12 @@
     margin-bottom: 20px;
 }
  
-
-
 .rowing{
     max-height: 50px;
     object-fit: contain;
 
 }
+
 .poster{
     max-height: 200px;
     object-fit: contain;
@@ -43,30 +42,35 @@
     margin-top: 9px;
     margin-bottom: 20px;
 }
+
 .largeposter{
     max-height: 300px;
 }
+
 h2{
     color: red;
 }
+
 .contain{
     background-color: black;
     backdrop-filter: blur(20px);
     background: transparent; 
     margin-bottom: 10px;
 }
+
 .poster:hover{
     transform: scale(1.09);
     cursor: pointer;
 }
+
 .now-playing-section {
-    margin-bottom: 10px; /* Space below this section */
+    margin-bottom: 10px; 
 }
 
 .top-rated-section {
-    margin-bottom: 10px; /* Space below this section */
+    margin-bottom: 10px; 
 }
 
 .upcoming-movies-section {
-    margin-bottom: 10px; /* Space below this section */
+    margin-bottom: 10px; 
 }

@@ -19,7 +19,17 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('defaultEmail', 'nangkyawt@gmail.com');
     localStorage.setItem('defaultPassword', '55555');
   }
-
+  // ngOnInit() {
+  //   // Check if the user is already logged in by looking for a token
+  //   const token = localStorage.getItem('token');
+  //   if (token) {
+  //     this.router.navigateByUrl('/login'); // Redirect to home if already logged in
+  //   } else {
+  //     // Set default credentials for testing purposes (if needed)
+  //     localStorage.setItem('defaultEmail', 'nangkyawt@gmail.com');
+  //     localStorage.setItem('defaultPassword', '55555');
+  //   }
+  // }
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }

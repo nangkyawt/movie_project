@@ -1,4 +1,5 @@
 <!-- <button class="btn btn-primary" (click)="getMovies()">Get Movies</button> -->
+<app-navbar></app-navbar>
 <div class="container-fluid">
   <div id="carouselExampleCaptions" class="carousel slide">
     <div class="carousel-inner">
@@ -49,6 +50,7 @@
             src="https://image.tmdb.org/t/p/original/{{
               nowplaying.poster_path
             }}"
+            [routerLink]="['/moviedetails', nowplaying.id]"
         /></ng-container>
       </div>
     </div>
