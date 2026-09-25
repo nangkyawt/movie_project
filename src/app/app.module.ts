@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -6,18 +7,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
-import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
-import { SearchComponent } from './pages/search/search.component';
+// Auth
+import { LoginComponent } from './features/auth/login/login.component';
+import { LogoutComponent } from './features/auth/logout/logout.component';
 
+// Home
+import { HomeComponent } from './features/home/home.component';
+
+// Movies
+import { MovieDetailsComponent } from './features/movies/movie-details/movie-details.component';
+import { SearchComponent } from './features/movies/search/search.component';
+
+// Shared
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { HighlightDirective } from './shared/directives/highlight.directive';
+import { SquarePipe } from './shared/pipes/square.pipe';
+import { PowerPipe } from './shared/pipes/power.pipe';
+
+// Services
 import { CookieService } from 'ngx-cookie-service';
-
-import { SquarePipe } from './square.pipe';
-import { PowerPipe } from './power.pipe';
-import { HighlightDirective } from './highlight.directive';
+import { MyListComponent } from './features/my-list/my-list.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +40,7 @@ import { HighlightDirective } from './highlight.directive';
     SquarePipe,
     PowerPipe,
     HighlightDirective,
+    MyListComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,3 +55,4 @@ import { HighlightDirective } from './highlight.directive';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+

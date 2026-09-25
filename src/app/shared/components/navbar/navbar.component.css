@@ -1,0 +1,174 @@
+.navbar {
+  height: 72px;
+  padding: 0 25px;
+  background: rgba(10, 10, 10, 0.94);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+}
+
+.container-fluid {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.navbar-brand:hover {
+  color: #ffffff;
+}
+
+.brand-icon {
+  color: #e5a93b;
+  font-size: 20px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar-nav {
+  gap: 8px;
+}
+
+.nav-link {
+  position: relative;
+  padding: 25px 14px !important;
+  color: #999999 !important;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff !important;
+}
+
+.nav-link.active {
+  color: #ffffff !important;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 17px;
+  height: 2px;
+  background: #e5a93b;
+}
+
+/* =========================
+   USER / LOGOUT
+========================= */
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 14px;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  background: transparent;
+  color: #aaaaaa;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  border-color: #555555;
+  background: #1c1c1c;
+  color: #ffffff;
+}
+
+.logout-btn i {
+  font-size: 14px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+.navbar-toggler {
+  border: 1px solid #333333;
+  color: #ffffff;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler i {
+  font-size: 18px;
+}
+
+@media (max-width: 991px) {
+
+  .navbar {
+    height: auto;
+    min-height: 70px;
+  }
+
+  .navbar-collapse {
+    padding: 15px 0;
+  }
+
+  .nav-link {
+    padding: 12px 5px !important;
+  }
+
+  .nav-link.active::after {
+    display: none;
+  }
+
+  .navbar-user {
+    position: absolute;
+    top: 17px;
+    right: 70px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .navbar-brand {
+    font-size: 16px;
+  }
+
+  .brand-icon {
+    font-size: 18px;
+  }
+
+  .logout-btn span {
+    display: none;
+  }
+
+  .logout-btn {
+    width: 36px;
+    padding: 0;
+    justify-content: center;
+  }
+}

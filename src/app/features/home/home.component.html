@@ -1,0 +1,273 @@
+<app-navbar></app-navbar>
+
+<div class="home-page">
+
+  <!-- HERO -->
+  <section
+    class="hero"
+    *ngIf="featuredMovie"
+    [style.background-image]="
+      'linear-gradient(90deg, #080808 0%, rgba(8,8,8,0.88) 35%, rgba(8,8,8,0.35) 70%, rgba(8,8,8,0.75) 100%), linear-gradient(0deg, #080808 0%, transparent 45%), url(https://image.tmdb.org/t/p/original/' + featuredMovie.backdrop_path + ')'
+    "
+  >
+
+    <div class="hero-content">
+
+      <span class="hero-label">
+        FEATURED MOVIE
+      </span>
+
+      <h1>
+        {{ featuredMovie.title }}
+      </h1>
+
+      <div class="hero-meta">
+
+        <span class="rating">
+          <i class="fa fa-star"></i>
+          {{ featuredMovie.vote_average | number:'1.1-1' }}
+        </span>
+
+        <span *ngIf="featuredMovie.release_date">
+          {{ featuredMovie.release_date | date:'yyyy' }}
+        </span>
+
+        <span>
+          TMDB
+        </span>
+
+      </div>
+
+      <p>
+        {{ featuredMovie.overview }}
+      </p>
+
+      <div class="hero-actions">
+
+        <button
+          class="watch-button"
+          (click)="goToMovieDetails(featuredMovie.id)"
+        >
+          <i class="fa fa-play"></i>
+          View Details
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MOVIE SECTIONS -->
+  <main class="movie-content">
+
+    <!-- NOW PLAYING -->
+    <section
+      class="movie-section"
+      *ngIf="now_playing_movies?.length"
+    >
+
+      <div class="section-header">
+
+        <div>
+          <span class="section-label">
+            NOW
+          </span>
+
+          <h2>
+            Now Playing
+          </h2>
+        </div>
+
+      </div>
+
+      <div class="movie-row">
+
+        <div
+          class="movie-card"
+          *ngFor="let movie of now_playing_movies"
+          (click)="goToMovieDetails(movie.id)"
+        >
+
+          <div class="poster-wrapper">
+
+            <img
+              *ngIf="movie.poster_path"
+              [src]="
+                'https://image.tmdb.org/t/p/w500/' +
+                movie.poster_path
+              "
+              [alt]="movie.title"
+            />
+
+            <div class="movie-overlay">
+
+              <div class="play-button">
+                <i class="fa fa-play"></i>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="movie-info">
+
+            <h3>
+              {{ movie.title }}
+            </h3>
+
+            <span>
+              <i class="fa fa-star"></i>
+              {{ movie.vote_average | number:'1.1-1' }}
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TOP RATED -->
+    <section
+      class="movie-section"
+      *ngIf="top_rated?.length"
+    >
+
+      <div class="section-header">
+
+        <div>
+          <span class="section-label">
+            POPULAR
+          </span>
+
+          <h2>
+            Top Rated
+          </h2>
+        </div>
+
+      </div>
+
+      <div class="movie-row">
+
+        <div
+          class="movie-card"
+          *ngFor="let movie of top_rated"
+          (click)="goToMovieDetails(movie.id)"
+        >
+
+          <div class="poster-wrapper">
+
+            <img
+              *ngIf="movie.poster_path"
+              [src]="
+                'https://image.tmdb.org/t/p/w500/' +
+                movie.poster_path
+              "
+              [alt]="movie.title"
+            />
+
+            <div class="movie-overlay">
+
+              <div class="play-button">
+                <i class="fa fa-play"></i>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="movie-info">
+
+            <h3>
+              {{ movie.title }}
+            </h3>
+
+            <span>
+              <i class="fa fa-star"></i>
+              {{ movie.vote_average | number:'1.1-1' }}
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- COMING SOON -->
+    <section
+      class="movie-section"
+      *ngIf="upcoming?.length"
+    >
+
+      <div class="section-header">
+
+        <div>
+          <span class="section-label">
+            UPCOMING
+          </span>
+
+          <h2>
+            Coming Soon
+          </h2>
+        </div>
+
+      </div>
+
+      <div class="movie-row">
+
+        <div
+          class="movie-card"
+          *ngFor="let movie of upcoming"
+          (click)="goToMovieDetails(movie.id)"
+        >
+
+          <div class="poster-wrapper">
+
+            <img
+              *ngIf="movie.poster_path"
+              [src]="
+                'https://image.tmdb.org/t/p/w500/' +
+                movie.poster_path
+              "
+              [alt]="movie.title"
+            />
+
+            <div class="movie-overlay">
+
+              <div class="play-button">
+                <i class="fa fa-play"></i>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="movie-info">
+
+            <h3>
+              {{ movie.title }}
+            </h3>
+
+            <span>
+              <i class="fa fa-star"></i>
+              {{ movie.vote_average | number:'1.1-1' }}
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>

@@ -1,0 +1,211 @@
+<app-navbar></app-navbar>
+
+<div class="movie-details-page" *ngIf="movie">
+
+  <!-- HERO -->
+  <section
+    class="movie-hero"
+    [style.background-image]="
+      'linear-gradient(90deg, #080808 0%, rgba(8,8,8,0.92) 35%, rgba(8,8,8,0.55) 70%, rgba(8,8,8,0.88) 100%), linear-gradient(0deg, #080808 0%, transparent 45%), url(https://image.tmdb.org/t/p/original/' + movie.backdrop_path + ')'
+    "
+  >
+
+    <div class="movie-hero-content">
+
+      <!-- POSTER -->
+      <div class="movie-poster-wrapper">
+
+        <img
+          *ngIf="movie.poster_path"
+          [src]="
+            'https://image.tmdb.org/t/p/w500/' +
+            movie.poster_path
+          "
+          [alt]="movie.original_title || movie.title"
+          class="movie-poster"
+        />
+
+      </div>
+
+
+      <!-- INFORMATION -->
+      <div class="movie-information">
+
+        <div class="movie-type">
+          <span>CIRAMA</span>
+          <span>•</span>
+          <span>MOVIE</span>
+        </div>
+
+
+        <h1>
+          {{ movie.original_title || movie.title }}
+        </h1>
+
+
+        <!-- META -->
+        <div class="movie-meta">
+
+          <span class="rating-badge">
+            <i class="fa fa-star"></i>
+            {{ movie.vote_average | number:'1.1-1' }}
+          </span>
+
+          <span *ngIf="movie.release_date">
+            {{ movie.release_date | date:'yyyy' }}
+          </span>
+
+          <span>TMDB</span>
+
+        </div>
+
+
+        <!-- GENRES -->
+        <div
+          class="genres"
+          *ngIf="movie.genres?.length"
+        >
+
+          <span
+            *ngFor="let genre of movie.genres"
+          >
+            {{ genre.name }}
+          </span>
+
+        </div>
+
+
+        <!-- OVERVIEW -->
+        <p class="movie-overview">
+          {{ movie.overview }}
+        </p>
+
+
+        <!-- ACTIONS -->
+        <div class="movie-actions">
+
+          <!-- WATCH TRAILER -->
+          <button
+            *ngIf="selectedVideo"
+            type="button"
+            class="watch-button"
+            (click)="scrollToTrailer()"
+          >
+            <i class="fa fa-play"></i>
+            Watch Trailer
+          </button>
+
+
+          <!-- MY LIST -->
+          <button
+            type="button"
+            class="list-button"
+            (click)="toggleMyList()"
+          >
+            <i
+              class="fa"
+              [ngClass]="isInMyList ? 'fa-check' : 'fa-plus'"
+            ></i>
+
+            {{ isInMyList ? 'In My List' : 'My List' }}
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TRAILER -->
+  <section
+    class="trailer-section"
+    *ngIf="selectedVideo"
+    id="trailer"
+  >
+
+    <div class="section-title">
+
+      <span>WATCH</span>
+      <h2>Trailer</h2>
+
+    </div>
+
+    <div class="trailer">
+
+      <iframe
+        [src]="selectedVideo"
+        title="Movie Trailer"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+
+    </div>
+
+  </section>
+
+
+  <!-- CAST -->
+  <section
+    class="cast-section"
+    *ngIf="cast?.length"
+  >
+
+    <div class="section-title">
+
+      <span>PEOPLE</span>
+      <h2>Cast</h2>
+
+    </div>
+
+
+    <div class="cast-row">
+
+      <div
+        class="cast-card"
+        *ngFor="let member of cast"
+      >
+
+        <div class="cast-photo">
+
+          <img
+            *ngIf="member.profile_path"
+            [src]="
+              'https://image.tmdb.org/t/p/w300/' +
+              member.profile_path
+            "
+            [alt]="member.name"
+          />
+
+          <div
+            class="cast-placeholder"
+            *ngIf="!member.profile_path"
+          >
+            <i class="fa fa-user"></i>
+          </div>
+
+        </div>
+
+
+        <div class="cast-details">
+
+          <h3>
+            {{ member.name }}
+          </h3>
+
+          <p>
+            {{ member.character }}
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

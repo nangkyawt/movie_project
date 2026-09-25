@@ -1,0 +1,98 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" routerLink="/home">
+      <i class="fa fa-film brand-icon"></i>
+      <span>CIRAMA</span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <div
+      class="collapse navbar-collapse justify-content-center"
+      id="navbarNav"
+    >
+      <ul class="navbar-nav">
+
+        <!-- HOME -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/home"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Home
+          </a>
+        </li>
+
+        <!-- MOVIES -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/home"
+          >
+            Movies
+          </a>
+        </li>
+
+        <!-- SERIES -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="javascript:void(0)"
+          >
+            Series
+          </a>
+        </li>
+
+        <!-- MY LIST -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/my-list"
+            routerLinkActive="active"
+          >
+            My List
+          </a>
+        </li>
+
+        <!-- SEARCH -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/search"
+            routerLinkActive="active"
+          >
+            Search
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- LOGOUT -->
+    <div class="navbar-user">
+      <button
+        class="logout-btn"
+        type="button"
+        (click)="logout()"
+        title="Logout"
+      >
+        <i class="fa fa-sign-out"></i>
+        <span>Logout</span>
+      </button>
+    </div>
+
+  </div>
+</nav>

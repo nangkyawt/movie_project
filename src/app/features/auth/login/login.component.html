@@ -1,0 +1,73 @@
+<div class="login-page">
+  <div class="login-card">
+
+    <div class="login-header">
+      <div class="logo">CIRAMA</div>
+
+      <h1>Welcome back</h1>
+      <p>Sign in to continue to CIRAMA</p>
+    </div>
+
+    <form (ngSubmit)="login()">
+
+      <div class="input-box">
+        <label for="email">Email</label>
+
+        <div class="input-wrapper">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+            placeholder="Enter your email"
+            required
+          />
+
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="input-box">
+        <label for="password">Password</label>
+
+        <div class="input-wrapper">
+          <input
+            [type]="passwordVisible ? 'text' : 'password'"
+            id="password"
+            name="password"
+            [(ngModel)]="password"
+            placeholder="Enter your password"
+            required
+          />
+
+          <i
+            class="fa"
+            [ngClass]="passwordVisible ? 'fa-eye' : 'fa-eye-slash'"
+            aria-hidden="true"
+            (click)="togglePasswordVisibility()"
+          ></i>
+        </div>
+      </div>
+
+      <div class="login-options">
+        <label>
+          <input type="checkbox" />
+          Remember me
+        </label>
+
+        <span>Forgot password?</span>
+      </div>
+
+      <button type="submit" class="login-button">
+        Sign In
+      </button>
+
+    </form>
+
+    <div class="register-link">
+      <span>Don't have an account?</span>
+      <span class="register-text">Create an account</span>
+    </div>
+
+  </div>
+</div>

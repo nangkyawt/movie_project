@@ -1,0 +1,418 @@
+.movie-details-page {
+  min-height: 100vh;
+  padding-top: 72px;
+  background: #080808;
+  color: #ffffff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.movie-hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.movie-hero-content {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  gap: 55px;
+}
+
+/* =========================
+   POSTER
+========================= */
+
+.movie-poster-wrapper {
+  flex: 0 0 280px;
+}
+
+.movie-poster {
+  width: 280px;
+  height: 420px;
+  display: block;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* =========================
+   INFORMATION
+========================= */
+
+.movie-information {
+  max-width: 650px;
+}
+
+.movie-type {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+  color: #777777;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.movie-type span:first-child {
+  color: #e5a93b;
+}
+
+.movie-information h1 {
+  margin: 0 0 18px;
+  color: #ffffff;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+/* =========================
+   META
+========================= */
+
+.movie-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 18px;
+  color: #999999;
+  font-size: 12px;
+}
+
+.rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 9px;
+  border-radius: 4px;
+  background: #e5a93b;
+  color: #111111;
+  font-weight: 700;
+}
+
+.rating-badge i {
+  font-size: 11px;
+}
+
+/* =========================
+   GENRES
+========================= */
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+
+.genres span {
+  padding: 6px 10px;
+  border: 1px solid #333333;
+  border-radius: 3px;
+  color: #aaaaaa;
+  font-size: 11px;
+}
+
+/* =========================
+   OVERVIEW
+========================= */
+
+.movie-overview {
+  max-width: 620px;
+  margin: 0 0 28px;
+  color: #b5b5b5;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.movie-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.watch-button,
+.list-button {
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.watch-button {
+  border: 1px solid #e5a93b;
+  background: #e5a93b;
+  color: #111111;
+}
+
+.watch-button:hover {
+  background: #f0b84f;
+  border-color: #f0b84f;
+}
+
+.list-button {
+  border: 1px solid #444444;
+  background: rgba(255, 255, 255, 0.04);
+  color: #cccccc;
+}
+
+.list-button:hover {
+  border-color: #777777;
+  color: #ffffff;
+}
+
+.watch-button i,
+.list-button i {
+  font-size: 12px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.trailer-section,
+.cast-section {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 65px 0 0;
+}
+
+.section-title {
+  margin-bottom: 22px;
+}
+
+.section-title span {
+  display: block;
+  margin-bottom: 6px;
+  color: #e5a93b;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+}
+
+.section-title h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+/* =========================
+   TRAILER
+========================= */
+
+.trailer {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111111;
+  border-radius: 5px;
+}
+
+.trailer iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =========================
+   CAST
+========================= */
+
+.cast-section {
+  padding-bottom: 80px;
+}
+
+.cast-row {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #333333 transparent;
+}
+
+.cast-card {
+  flex: 0 0 145px;
+}
+
+.cast-photo {
+  width: 145px;
+  height: 190px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #151515;
+}
+
+.cast-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.cast-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444444;
+  font-size: 35px;
+}
+
+.cast-details {
+  padding-top: 10px;
+}
+
+.cast-details h3 {
+  margin: 0 0 4px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cast-details p {
+  margin: 0;
+  color: #666666;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .movie-hero {
+    min-height: auto;
+  }
+
+  .movie-hero-content {
+    padding: 65px 0;
+    gap: 35px;
+  }
+
+  .movie-poster-wrapper {
+    flex: 0 0 220px;
+  }
+
+  .movie-poster {
+    width: 220px;
+    height: 330px;
+  }
+
+  .movie-information h1 {
+    font-size: 38px;
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .movie-details-page {
+    padding-top: 70px;
+  }
+
+  .movie-hero {
+    background-position: center top;
+  }
+
+  .movie-hero-content {
+    width: 92%;
+    padding: 50px 0 60px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .movie-poster-wrapper {
+    width: 180px;
+    flex: none;
+  }
+
+  .movie-poster {
+    width: 180px;
+    height: 270px;
+  }
+
+  .movie-information {
+    width: 100%;
+  }
+
+  .movie-information h1 {
+    font-size: 34px;
+  }
+
+  .movie-overview {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .trailer-section,
+  .cast-section {
+    width: 92%;
+  }
+
+  .watch-button,
+  .list-button {
+    height: 40px;
+    padding: 0 14px;
+  }
+
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+  .movie-information h1 {
+    font-size: 29px;
+  }
+
+  .movie-actions {
+    width: 100%;
+  }
+
+  .watch-button,
+  .list-button {
+    flex: 1;
+    justify-content: center;
+  }
+
+}

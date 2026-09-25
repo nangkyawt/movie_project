@@ -1,0 +1,122 @@
+<app-navbar></app-navbar>
+
+<div class="my-list-page">
+
+  <section class="my-list-header">
+
+    <div>
+      <span class="section-label">YOUR COLLECTION</span>
+      <h1>My List</h1>
+      <p *ngIf="myList.length > 0">
+        {{ myList.length }} movie{{ myList.length > 1 ? 's' : '' }} saved
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- MOVIES -->
+  <section class="movie-section" *ngIf="myList.length > 0">
+
+    <div class="movie-grid">
+
+      <div
+        class="movie-card"
+        *ngFor="let movie of myList"
+      >
+
+        <div
+          class="poster-wrapper"
+          (click)="goToMovieDetails(movie.id)"
+        >
+
+          <img
+            *ngIf="movie.poster_path"
+            [src]="
+              'https://image.tmdb.org/t/p/w500/' +
+              movie.poster_path
+            "
+            [alt]="movie.title"
+          />
+
+          <div
+            class="poster-placeholder"
+            *ngIf="!movie.poster_path"
+          >
+            <i class="fa fa-film"></i>
+          </div>
+
+          <div class="movie-overlay">
+
+            <div class="play-button">
+              <i class="fa fa-play"></i>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="movie-info">
+
+          <h2>
+            {{ movie.title }}
+          </h2>
+
+          <div class="movie-meta">
+
+            <span *ngIf="movie.vote_average">
+              <i class="fa fa-star"></i>
+              {{ movie.vote_average | number:'1.1-1' }}
+            </span>
+
+            <span *ngIf="movie.release_date">
+              {{ movie.release_date | date:'yyyy' }}
+            </span>
+
+          </div>
+
+          <button
+            type="button"
+            class="remove-button"
+            (click)="removeFromMyList(movie.id)"
+          >
+            <i class="fa fa-trash"></i>
+            Remove
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- EMPTY STATE -->
+  <section
+    class="empty-state"
+    *ngIf="myList.length === 0"
+  >
+
+    <div class="empty-icon">
+      <i class="fa fa-bookmark-o"></i>
+    </div>
+
+    <h2>Your list is empty</h2>
+
+    <p>
+      Save movies you want to watch later and they will appear here.
+    </p>
+
+    <button
+      type="button"
+      class="browse-button"
+      routerLink="/home"
+    >
+      Browse Movies
+    </button>
+
+  </section>
+
+</div>

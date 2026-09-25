@@ -1,0 +1,209 @@
+<app-navbar></app-navbar>
+
+<div class="search-page">
+
+  <!-- SEARCH HEADER -->
+  <section class="search-section">
+
+    <div class="search-container">
+
+      <div class="search-title">
+        <span>SEARCH</span>
+        <h1>Find something to watch</h1>
+      </div>
+
+      <div class="search-box">
+
+        <i class="fa fa-search" aria-hidden="true"></i>
+
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          (keyup.enter)="searchMovie()"
+          placeholder="Search movies..."
+        />
+
+        <button
+          *ngIf="searchTerm"
+          type="button"
+          class="clear-button"
+          (click)="clearSearch()"
+          aria-label="Clear search"
+        >
+          <i class="fa fa-times"></i>
+        </button>
+
+        <button
+          type="button"
+          class="search-button"
+          (click)="searchMovie()"
+        >
+          Search
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- RESULTS -->
+  <section class="results-section">
+
+    <!-- POPULAR SEARCHES -->
+    <div
+      class="popular-searches"
+      *ngIf="!searched"
+    >
+
+      <h2>Popular Searches</h2>
+
+      <div class="search-tags">
+
+        <button
+          type="button"
+          (click)="searchByGenre('Action')"
+        >
+          Action
+        </button>
+
+        <button
+          type="button"
+          (click)="searchByGenre('Drama')"
+        >
+          Drama
+        </button>
+
+        <button
+          type="button"
+          (click)="searchByGenre('Comedy')"
+        >
+          Comedy
+        </button>
+
+        <button
+          type="button"
+          (click)="searchByGenre('Science Fiction')"
+        >
+          Sci-Fi
+        </button>
+
+        <button
+          type="button"
+          (click)="searchByGenre('Thriller')"
+        >
+          Thriller
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- RESULT HEADER -->
+    <div
+      class="section-heading"
+      *ngIf="movies && movies.length > 0"
+    >
+
+      <div>
+        <span class="section-label">RESULTS</span>
+        <h2>Search Results</h2>
+      </div>
+
+      <span class="result-count">
+        {{ movies.length }} movies
+      </span>
+
+    </div>
+
+
+    <!-- MOVIE GRID -->
+    <div
+      class="movie-grid"
+      *ngIf="movies && movies.length > 0"
+    >
+
+      <div
+        class="movie-card"
+        *ngFor="let movie of movies"
+        (click)="goToMovieDetails(movie.id)"
+      >
+
+        <div class="poster-wrapper">
+
+          <img
+            *ngIf="movie.poster_path"
+            [src]="
+              'https://image.tmdb.org/t/p/w500/' +
+              movie.poster_path
+            "
+            [alt]="movie.title"
+          />
+
+          <div
+            class="poster-placeholder"
+            *ngIf="!movie.poster_path"
+          >
+            <i class="fa fa-film"></i>
+          </div>
+
+          <div class="movie-overlay">
+
+            <div class="play-button">
+              <i class="fa fa-play"></i>
+            </div>
+
+            <span>View Details</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="movie-info">
+
+          <h3>
+            {{ movie.title }}
+          </h3>
+
+          <div class="movie-meta">
+
+            <span *ngIf="movie.vote_average">
+              <i class="fa fa-star"></i>
+              {{ movie.vote_average | number:'1.1-1' }}
+            </span>
+
+            <span *ngIf="movie.release_date">
+              {{ movie.release_date | date:'yyyy' }}
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- NO RESULTS -->
+    <div
+      class="empty-state"
+      *ngIf="searched && (!movies || movies.length === 0)"
+    >
+
+      <i class="fa fa-film"></i>
+
+      <h2>No movies found</h2>
+
+      <p>
+        Try searching with another movie title.
+      </p>
+
+    </div>
+
+  </section>
+
+</div>
