@@ -1,33 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { MovieComponent } from './movie/movie.component';
-import { HttpClientModule } from '@angular/common/http';
+
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { LogoutComponent } from './logout/logout.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-// import { SearchComponent } from './pages/search/search.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
+import { SearchComponent } from './pages/search/search.component';
+
 import { CookieService } from 'ngx-cookie-service';
-import { LogoutComponent } from './logout/logout.component';
+
 import { SquarePipe } from './square.pipe';
 import { PowerPipe } from './power.pipe';
 import { HighlightDirective } from './highlight.directive';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // MovieComponent,
     LoginComponent,
+    LogoutComponent,
     NavbarComponent,
     HomeComponent,
-    // SearchComponent,
     MovieDetailsComponent,
-    LogoutComponent,
+    SearchComponent,
     SquarePipe,
     PowerPipe,
     HighlightDirective,
@@ -39,7 +39,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [CookieService],
+  providers: [
+    CookieService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

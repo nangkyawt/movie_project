@@ -1,5 +1,6 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './pages/search/search.component';
@@ -13,23 +14,25 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
     path: 'home',
     component: HomeComponent,
     canActivate: [authGuard],
   },
   {
-    path: 'login',
-    component: LoginComponent,
-  },
-
-  {
     path: 'search',
     component: SearchComponent,
   },
-
   {
     path: 'moviedetails/:id',
     component: MovieDetailsComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'login',
   },
 ];
 

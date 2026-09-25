@@ -1,25 +1,13 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 
-export const authGuard: CanActivateFn = (route, state) => {
-  const router: Router = inject(Router);
+export const authGuard: CanActivateFn = () => {
+  const router = inject(Router);
+  const token = localStorage.getItem('token');
 
-  // const cookieService: CookieService = inject(CookieService);<<<THIS METHOD IS OLD COOKIESERVICE WITH KO H2WY IN CLASS>>>
-  const tokenInLocalStorage = localStorage.getItem('token');
-
-  // THIS METHOD IS OLD COOKIESERVICE WITH KO H2WY IN CLASS
-  // if (cookieService.get('token')) {
-  //   return true;
-  // } else {
-  //   router.navigateByUrl('login');
-  //   return false;
-  // }
-
-  if (tokenInLocalStorage) {
+  if (token) {
     return true;
-  } else {
-    router.navigateByUrl('/login');
-    return false;
   }
+
+  return router.createUrlTree(['/login']);
 };
