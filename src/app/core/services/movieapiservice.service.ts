@@ -1,8 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Movie, Result } from '../../movie/movie';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+
+interface Result {
+  id: number;
+  title: string;
+  original_title?: string;
+  overview?: string;
+  poster_path?: string;
+  backdrop_path?: string;
+  release_date?: string;
+  vote_average?: number;
+  [key: string]: any;
+}
+
+interface Movie {
+  results: Result[];
+  [key: string]: any;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -14,13 +29,13 @@ export class MovieapiserviceService {
 
   async movieApidata(type: any): Promise<Result[]> {
     return new Promise(async (resolve, reject) => {
-      const response = this.http.get(
+      const response = this.http.get<Movie>(
         `https://api.themoviedb.org/3/movie/${type}?api_key=050c28541f900007285c3020069bfd62&language=en-US&page=1`
       );
 
       this.movieSubscribtion = response.subscribe({
         next: (data: Movie) => {
-          resolve(data['results']!);
+          resolve(data.results);
           console.log(data, 'result#');
         },
 

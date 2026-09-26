@@ -7,7 +7,9 @@ import { SearchComponent } from './features/movies/search/search.component';
 import { MovieDetailsComponent } from './features/movies/movie-details/movie-details.component';
 import { MyListComponent } from './features/my-list/my-list.component';
 
+
 import { authGuard } from './core/guards/auth.guard';
+import { MoviesComponent } from './features/movies/movies/movies.component';
 
 const routes: Routes = [
   {
@@ -24,6 +26,12 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [authGuard],
+  },
+
+  {
+    path: 'movies',
+    component: MoviesComponent,
     canActivate: [authGuard],
   },
 
